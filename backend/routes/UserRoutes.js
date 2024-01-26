@@ -4,3 +4,6 @@ router.post('/register', UserController.register)
 
 
 module.exports = router
+
+
+//configuracao da rota dos usuarios 

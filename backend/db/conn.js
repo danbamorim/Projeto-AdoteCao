@@ -9,3 +9,6 @@ main().catch((err) => console.log(err))
 
 
 module.exports = mongoose
+
+
+//configuracao da conexao do banco de dados
