@@ -3,20 +3,23 @@ const cors = require('cors') //O CORS é uma política de segurança que visa pr
 
 const app = express()
 
-// Config JSON response
+// Config JSON  
 app.use(express.json())
 
 //O código está dizendo ao servidor para aceitar solicitações de origem http://localhost:3000 e permitir o envio de credenciais durante essas solicitações (usando o parâmetro credentials: true).
 app.use(cors({ credentials: true, origin: 'http://localhost:3000' }))
 
+
 // Public folder for images
 app.use(express.static('public'))
 
-// rotas 
-const PetRoutes = require('./routes/PetRoutes')
+
+// Rotas 
+
+//const PetRoutes = require('./routes/PetRoutes')
 const UserRoutes = require('./routes/UserRoutes')
 
-app.use('/pets', PetRoutes)
+//app.use('/pets', PetRoutes)
 app.use('/users', UserRoutes)
 
 app.listen(5000)
