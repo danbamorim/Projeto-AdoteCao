@@ -1,5 +1,5 @@
 const express = require('express')
-const cors = require('cors') //O CORS é uma política de segurança que visa proteger os usuários, impedindo que scripts maliciosos de um site acessem recursos em outro domínio sem permissão.
+const cors = require('cors') //O CORS é uma política de segurança que visa proteger os Usuários, impedindo que scripts maliciosos de um site acessem recursos em outro domínio sem permissão.
 
 const app = express()
 
