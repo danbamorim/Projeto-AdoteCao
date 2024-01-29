@@ -27,7 +27,7 @@ const Pet = mongoose.model(
       type: Array,
       required: true,
     },
-    available: {  //estado do pet : se está disponivel ou nao.
+    available: {  //  estado do pet : se está disponivel ou nao.
       type: Boolean,
     },
     user: Object,
