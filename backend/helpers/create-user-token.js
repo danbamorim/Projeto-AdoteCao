@@ -12,7 +12,7 @@ const createUserToken = async (user, req, res) => {
     // return token
 
     res.status(200).json({
-        message: "Você está autenticado",
+        message: "Você está autenticado!",
         token: token,
         userId: user._id,
     }) // Após a criação do token, o servidor envia uma resposta HTTP com status 200 (OK) e um objeto JSON no corpo da resposta.
