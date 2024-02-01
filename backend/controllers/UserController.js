@@ -8,6 +8,7 @@ const createUserToken = require('../helpers/create-user-token')
 
 const getToken = require('../helpers/get-token')
 
+const getUserByToken = require('../helpers/get-user-by-token')
 
 module.exports = class UserController {
     static async register(req, res) {
@@ -123,21 +124,60 @@ module.exports = class UserController {
 
         if (!user) {
             res.status(422).json({
-            message: 'Usuário não encontrado!' })
+                message: 'Usuário não encontrado!'
+            })
             return
         }
         res.status(200).json({ user })
     }
 
-     static async editUser (req,res){
-        res.status(200).json({
-            message: 'Deu certo update!',
-        })
-        return
-     }
+    static async editUser(req, res) {
+        const id = req.params.id
 
+        // verifica se o usuario existe
+        const token = getToken(req)
+        const user = await getUserByToken(token)
+
+        const { name, email, phone, password, confirmpassword } = req.body
+        
+        let image = ''
+
+        // validações
+        if (!name) {
+            res.status(422).json({ message: 'o nome é obrigatório! ' })
+            return
+        }
+        if (!email) {
+            res.status(422).json({ message: 'o email é obrigatório! ' })
+            return
+        }
+
+        // checar se o email ja esta em uso
+        const userExists = await User.findOne({ email: email })
+        if (user.email !== email && userExists) {
+            res.status(422).json({
+                message: 'Esse email esta sendo utilizado por favor mude!',
+            })
+            return
+        }
+
+        user.email = email
+
+        if (!phone) {
+            res.status(422).json({ message: ' o telefone é obrigatório!  ' })
+            return
+        }
+        if (!password) {
+            res.status(422).json({ message: 'a senha é obrigatório! ' })
+            return
+        }
+        if (!confirmpassword) {
+            res.status(422).json({ message: 'a confirmação de senha é obrigatório! ' })
+            return
+        }
+        if (password !== confirmpassword) {
+            res.status(422).json({ message: ' as senhas precisam ser iguais! ' })
+            return
+        }
+    }
 }
-
-
-
-//validações necessaria para a controller de usuario
