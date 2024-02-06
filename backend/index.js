@@ -16,10 +16,10 @@ app.use(express.static('public'))
 
 // Rotas 
 
-//const PetRoutes = require('./routes/PetRoutes')
+const PetRoutes = require('./routes/PetRoutes')
 const UserRoutes = require('./routes/UserRoutes')
 
-//app.use('/pets', PetRoutes)
+app.use('/pets', PetRoutes)
 app.use('/users', UserRoutes)
 
 app.listen(5000)
