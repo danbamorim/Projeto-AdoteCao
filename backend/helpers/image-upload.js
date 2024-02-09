@@ -14,11 +14,11 @@ const imageStorage = multer.diskStorage({ // Aqui estamos criando uma instância
     cb(null, `public/images/${folder}/`);
   },
   filename: (req, file, cb) => { // Este é outro método que define o nome do arquivo a ser salvo.
-    cb(null, Date.now() + path.extname(file.originalname));
+    cb(null, Date.now() + String(Math.floor(Math.random()* 1000)) + path.extname(file.originalname));
   },
 });
 
-const imageUpload = multer({ //ao utilizar esse módulo em outros lugares da aplicação, você pode aplicar o middleware imageUpload para processar solicitações de upload de imagens, garantindo que elas sejam armazenadas no local apropriado e que apenas os formatos desejados sejam aceitos.
+const imageUpload = multer({ // ao utilizar esse módulo em outros lugares da aplicação, você pode aplicar o middleware imageUpload para processar solicitações de upload de imagens, garantindo que elas sejam armazenadas no local apropriado e que apenas os formatos desejados sejam aceitos.
   storage: imageStorage,
   fileFilter(req, file, cb) {
     if (!file.originalname.match(/\.(png|jpg)$/)) {

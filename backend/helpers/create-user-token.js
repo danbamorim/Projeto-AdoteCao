@@ -2,14 +2,14 @@ const jwt = require("jsonwebtoken") //  O jsonwebtoken é uma biblioteca bastant
 
 const createUserToken = async (user, req, res) => {
 
-    // create a token
+    // criando um token
     const token = jwt.sign({
         name: user.name,
         id: user._id
     }, "nossosecret") // O método sign da biblioteca jsonwebtoken é usado para criar um token JWT.O primeiro argumento é um objeto que representa o conteúdo do token. Neste caso, parece incluir o nome do usuário (user.name) e o ID do usuário (user._id). O segundo argumento é a chave secreta usada para assinar o token. Neste caso, a string "nossosecret" está sendo usada como chave secreta. A chave secreta é usada para garantir que o token não tenha sido adulterado.
 
 
-    // return token
+    // returno de um token
 
     res.status(200).json({
         message: "Você está autenticado!",

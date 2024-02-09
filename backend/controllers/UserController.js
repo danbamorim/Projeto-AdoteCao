@@ -207,13 +207,13 @@ module.exports = class UserController {
 
     user.phone = phone
 
-    // check if password match
+    // verifica se a senha corresponde
     if (password != confirmpassword) {
       res.status(422).json({ error: 'As senhas não conferem.' })
 
-      // change password
+      // alterar a senha
     } else if (password == confirmpassword && password != null) {
-      // creating password
+      //criando senha
       const salt = await bcrypt.genSalt(12)
       const reqPassword = req.body.password
 
@@ -223,7 +223,7 @@ module.exports = class UserController {
     }
 
     try {
-      // returns updated data
+      //retorna dados atualizados
       const updatedUser = await User.findOneAndUpdate(
         { _id: user._id },
         { $set: user },
