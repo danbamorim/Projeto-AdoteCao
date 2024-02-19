@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 import React from 'react'
+import Container from './components/layout/Container'
 
 // importando paginas 
 import Home from './components/pages/Home'
@@ -17,13 +18,15 @@ import Footer from './components/layout/Footer'
 function App() {
   return (
     <Router>
-      <Navbar />
+       <Navbar/>
+     <Container>
       <Routes>\
         <Route path="/login" element = {<Login />}/>
         <Route path="/register" element = {<Register />}/>
         <Route path="/" element = {<Home />}/>
         </Routes>
-        <Footer/>
+     </Container>
+     <Footer/>
     </Router>
   )
 }
