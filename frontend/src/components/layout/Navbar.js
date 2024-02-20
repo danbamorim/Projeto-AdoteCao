@@ -8,8 +8,8 @@ function Navbar() {
     return (
         <nav className={styles.navbar}>
             <div className={styles.navbar_logo} >
-                <img src={Logo} alt ="adote um cAO"/>
-                <h2> Adote um cao</h2>
+                <img src={Logo} alt ="Adote um cão"/>
+                <h2> Adote um cão</h2>
             </div>
             <ul>
                 <li>
