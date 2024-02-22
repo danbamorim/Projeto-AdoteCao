@@ -1,12 +1,16 @@
 import api from '../utils/api'
-import { usestate, useEffect } from 'react'
-import { UserNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import useFlashMessage from './useFlashMessage'
 
 
 
 export default function useAuth() {
-    const{setFlashMessage} = useFlashMessage()
+    const [authenticated, setAuthenticated] = useState(false)
+   // const [loading, setLoading] = useState(true)
+    const navigate= useNavigate()
+    const { setFlashMessage } = useFlashMessage()
+
     async function register(user) {
 
         let msgText = 'Cadastro realizado com sucesso'
@@ -16,13 +20,21 @@ export default function useAuth() {
             const data = await api.post('/users/register', user).then((response) => {
                 return response.data
             })
-            console.log(data)
+           await  authUser(data)
         } catch (error) {
             // tratar erro
             msgText = error.response.data.message
             msgType = 'error'
         }
-        setFlashMessage(msgText,msgType)
+
+        setFlashMessage(msgText, msgType)
+    }
+
+    async function authUser(data) {
+        setAuthenticated(true)
+        localStorage.setItem('token', JSON.stringify(data.token))
+
+        navigate('/')
     }
     return { register }
 }
