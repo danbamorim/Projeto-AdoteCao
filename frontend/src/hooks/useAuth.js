@@ -10,6 +10,15 @@ export default function useAuth() {
    // const [loading, setLoading] = useState(true)
     const navigate= useNavigate()
     const { setFlashMessage } = useFlashMessage()
+    
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (token) {
+      api.defaults.headers.Authorization = `Bearer ${JSON.parse(token)}`
+      setAuthenticated(true)
+    }
+  }, [])    
+
 
     async function register(user) {
 
@@ -36,5 +45,5 @@ export default function useAuth() {
 
         navigate('/')
     }
-    return { register }
+    return { authenticated, register }
 }
