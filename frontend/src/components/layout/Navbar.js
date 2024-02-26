@@ -1,41 +1,54 @@
 import { Link } from 'react-router-dom'
-import Logo from '../../assets/img/logo.png'
+import React, { useContext } from 'react'
+
 import styles from './Navbar.module.css'
-import { useContext } from 'react'
+
+import Logo from '../../assets/img/logo.png'
+
 /* contexts */
 import { Context } from '../../context/UserContext'
 
+/* hooks */
 
 function Navbar() {
-    const { authenticated } = useContext(Context)
-    return (
-        <nav className={styles.navbar}>
-            <div className={styles.navbar_logo} >
-                <img src={Logo} alt="Adote um cão" />
-                <h2> Adote um cão</h2>
-            </div>
-            <ul>
-                <li>
-                    | <Link to="/">Adotar</Link>
-                </li>
+  const { authenticated, logout } = useContext(Context)
 
-                {authenticated ? (
-                    <>
-                        <p>LOgado</p>
-                    </>
-                ) : (
-                    <>
-                        <li>
-                            <Link to="/login">Entrar</Link>
-                        </li>
-                        <li>
-                            <Link to="/register">Cadastrar</Link>
-                        </li></>
-
-                )}
-            </ul>
-        </nav>
-
-    )
+  return (
+    <nav className={styles.navbar}>
+      <div className={styles.navbar_logo}>
+        <img src={Logo} alt="Adote um cao" />
+        <h2>Adote um cao</h2>
+      </div>
+      <ul>
+        <li>
+          <Link to="/">Adotar</Link>
+        </li>
+        {authenticated ? (
+          <>
+            <li>
+              <Link to="/pet/myadoptions">Minhas Adoções</Link>
+            </li>
+            <li>
+              <Link to="/pet/mypets">Meus Pets</Link>
+            </li>
+            <li>
+              <Link to="/user/profile">Meu Perfil</Link>
+            </li>
+            <li onClick={logout}>Sair</li>
+          </>
+        ) : (
+          <>
+            <li>
+              <Link to="/login">Entrar</Link>
+            </li>
+            <li>
+              <Link to="/register">Registar</Link>
+            </li>
+          </>
+        )}
+      </ul>
+    </nav>
+  )
 }
+
 export default Navbar

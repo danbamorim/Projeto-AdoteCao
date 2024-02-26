@@ -7,9 +7,9 @@ import { UserProvider } from './context/UserContext'
 
 // importando paginas 
 import Home from './components/pages/Home'
-import Login from './components/pages/Auth/Login'
-import Register from './components/pages/Auth/Register'
-
+import Login from './components/pages/auth/Login'
+import Register from './components/pages/auth/Register'
+import Profile from './components/pages/user/Profile'
 
 // importando componentes 
 import Navbar from './components/layout/Navbar'
@@ -29,6 +29,7 @@ function App() {
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/user/profile" element={<Profile />} />
             <Route path="/" element={<Home />} />
           </Routes>
         </Container>
