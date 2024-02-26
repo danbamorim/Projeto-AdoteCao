@@ -9,7 +9,7 @@ import { UserProvider } from './context/UserContext'
 import Home from './components/pages/Home'
 import Login from './components/pages/auth/Login'
 import Register from './components/pages/auth/Register'
-import Profile from './components/pages/user/Profile'
+import Profile from './components/pages/User/Profile'
 
 // importando componentes 
 import Navbar from './components/layout/Navbar'
