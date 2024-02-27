@@ -1,0 +1,87 @@
+.petslist_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2em;
+  }
+  
+  .petslist_header h1 {
+    margin: 0;
+  }
+  
+  .petslist_header a {
+    text-decoration: none;
+    background-color: #4D8C86;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.5s;
+    padding: 0.5em 0.8em;
+    border-radius: 5px;
+  }
+
+  
+  .petslist_container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .petlist_row {
+    border-bottom: 1px solid #4D8C86;
+    padding: 1em;
+    margin: 1em;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .petlist_row img {
+    margin-right: 1em;
+  }
+  
+  .petlist_row span {
+    min-width: 100px;
+  }
+  
+  .actions {
+    margin-left: auto;
+  }
+  
+  .actions a,
+  .actions button {
+    text-decoration: none;
+    color: #000000;
+    border: 2px solid #4D8C86;
+    border-radius: 5px;
+    padding: 7px 12px;
+    background-color: #a4a4a4;
+    margin-left: 1em;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 12px;
+  }
+  
+  .actions a:hover,
+  .actions button:hover {
+    background-color: #C4172E;
+    color: #fff;
+  }
+  
+  .actions .conclude_btn {
+    color: #25b456;
+    border-color: #25b456;
+  }
+  
+  .actions .conclude_btn:hover {
+    color: #fff;
+    background-color: #25b456;
+  }
+  
+  /* my adoptions */
+  .contacts {
+    margin-left: 2em;
+  }
+  
+  .contacts p {
+    margin-bottom: 0.5em;
+  }

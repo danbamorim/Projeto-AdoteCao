@@ -141,8 +141,8 @@ module.exports = class PetController {
     })
   }
 
-  // remover o pet
-  static async removePetById(req, res) {
+   // remove a pet
+   static async removePetById(req, res) {
     const id = req.params.id
 
     // checar se o id é válido 
@@ -171,9 +171,10 @@ module.exports = class PetController {
       return
     }
 
-    await Pet.findByIdAndRemove(id)
+    await Pet.findOneAndDelete(id)
 
     res.status(200).json({ message: 'Pet removido com sucesso!' })
+
   }
 
   // pet atualizar um pet

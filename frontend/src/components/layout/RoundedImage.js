@@ -6,7 +6,7 @@ function RoundedImage({ src, alt, width }) {
       className={`${styles.rounded_image} ${styles[width]}`}
       src={src}
       alt={alt}
-    />
+     />
   )
 }
 
