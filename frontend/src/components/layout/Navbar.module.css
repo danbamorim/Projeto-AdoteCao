@@ -1,9 +1,9 @@
-.navbar {
+ .navbar {
     display: flex;
     justify-content: space-between;
     padding: 1em 1.5em;
-    background-color:#4D8C86;
-    color: #e0e0e0;
+    background-color: #4D8C86;
+    color: #dcdcdc;
   }
   
   .navbar_logo {
@@ -12,9 +12,8 @@
   }
   
   .navbar_logo img {
-    width: 60px;
+    width: 40px;
     margin-right: .8em;
-    
   }
   
   .navbar ul {
@@ -26,7 +25,7 @@
   .navbar li,
   .navbar a {
     text-decoration: none;
-    color: #e0e0e0;
+    color: #faf4f4;
     font-weight: bold;
     cursor: pointer;
     transition: .5s;
@@ -35,7 +34,7 @@
   }
   
   .navbar li:hover {
-    background-color: #C4172E;
+    background-color: #BF1B39;
     color: #FFF;
   }
   
