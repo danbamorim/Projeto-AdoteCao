@@ -1,4 +1,3 @@
-Projeto utilizando : API, RESTful, Express, MVC, MongoDB com Mongoose e React
+# Projeto Adote um Cão
 
-proposto pelo curso da udemy, criado pelo Matheus Battisti
-           
+Inspirado no curso da Udemy, liderado por Matheus Battisti. Esta aplicação integra conceitos avançados como API, RESTful, Express, MVC, MongoDB com Mongoose e React, proporcionando uma experiência de aprendizado completa e prática.
